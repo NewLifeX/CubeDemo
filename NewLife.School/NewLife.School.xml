@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tables Version="8.21.5904.29181">
+  <Table Name="Class" Description="班级" DbType="SqlServer">
+    <Columns>
+      <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
+      <Column Name="Name" DataType="String" Master="True" Description="名称" />
+      <Column Name="CreateUserID" DataType="Int32" Description="创建者" />
+      <Column Name="CreateTime" DataType="DateTime" Description="创建时间" />
+      <Column Name="CreateIP" DataType="String" Description="创建地址" />
+      <Column Name="UpdateUserID" DataType="Int32" Description="更新者" />
+      <Column Name="UpdateTime" DataType="DateTime" Description="更新时间" />
+      <Column Name="UpdateIP" DataType="String" Description="更新地址" />
+      <Column Name="Remark" DataType="String" Length="200" Description="备注" />
+    </Columns>
+  </Table>
+  <Table Name="Student" Description="学生" DbType="SqlServer">
+    <Columns>
+      <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
+      <Column Name="ClassID" DataType="Int32" Description="班级" />
+      <Column Name="Name" DataType="String" Master="True" Description="名称" />
+      <Column Name="Sex" DataType="Int32" Description="性别" />
+      <Column Name="Age" DataType="Int32" Description="年龄" />
+      <Column Name="Mobile" DataType="String" Description="手机" />
+      <Column Name="Address" DataType="String" Description="地址" />
+      <Column Name="CreateUserID" DataType="Int32" Description="创建者" />
+      <Column Name="CreateTime" DataType="DateTime" Description="创建时间" />
+      <Column Name="CreateIP" DataType="String" Description="创建地址" />
+      <Column Name="UpdateUserID" DataType="Int32" Description="更新者" />
+      <Column Name="UpdateTime" DataType="DateTime" Description="更新时间" />
+      <Column Name="UpdateIP" DataType="String" Description="更新地址" />
+      <Column Name="Remark" DataType="String" Length="200" Description="备注" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClassID" />
+    </Indexes>
+    <Relations>
+      <Relation Column="ClassID" RelationTable="Class" RelationColumn="ID" />
+    </Relations>
+  </Table>
+</Tables>
