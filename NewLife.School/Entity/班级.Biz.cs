@@ -1,8 +1,8 @@
 ﻿/*
- * XCoder v6.6.5904.29183
+ * XCoder v6.9.6229.20370
  * 作者：Stone/X2
- * 时间：2016-03-01 17:34:03
- * 版权：版权所有 (C) 新生命开发团队 2002~2016
+ * 时间：2017-01-23 16:02:44
+ * 版权：版权所有 (C) 新生命开发团队 2002~2017
 */
 ﻿using System;
 using System.Collections.Generic;
@@ -16,10 +16,10 @@ using XCode;
 using XCode.Configuration;
 using XCode.Membership;
 
-namespace NewLife.School
+namespace NewLife.School.Entity
 {
-    /// <summary>学生</summary>
-    public partial class Student : UserTimeEntity<Student>
+    /// <summary>班级</summary>
+    public partial class Class : Entity<Class>
     {
         #region 对象操作
             ﻿
@@ -58,15 +58,10 @@ namespace NewLife.School
         //    if (Meta.Count > 0) return;
 
         //    // 需要注意的是，如果该方法调用了其它实体类的首次数据库操作，目标实体类的数据初始化将会在同一个线程完成
-        //    if (XTrace.Debug) XTrace.WriteLine("开始初始化{0}[{1}]数据……", typeof(Student).Name, Meta.Table.DataTable.DisplayName);
+        //    if (XTrace.Debug) XTrace.WriteLine("开始初始化{0}[{1}]数据……", typeof(Class).Name, Meta.Table.DataTable.DisplayName);
 
-        //    var entity = new Student();
-        //    entity.ClassID = 0;
+        //    var entity = new Class();
         //    entity.Name = "abc";
-        //    entity.Sex = 0;
-        //    entity.Age = 0;
-        //    entity.Mobile = "abc";
-        //    entity.Address = "abc";
         //    entity.CreateUserID = 0;
         //    entity.CreateTime = DateTime.Now;
         //    entity.CreateIP = "abc";
@@ -76,7 +71,7 @@ namespace NewLife.School
         //    entity.Remark = "abc";
         //    entity.Insert();
 
-        //    if (XTrace.Debug) XTrace.WriteLine("完成初始化{0}[{1}]数据！", typeof(Student).Name, Meta.Table.DataTable.DisplayName);
+        //    if (XTrace.Debug) XTrace.WriteLine("完成初始化{0}[{1}]数据！", typeof(Class).Name, Meta.Table.DataTable.DisplayName);
         //}
 
 
@@ -97,37 +92,21 @@ namespace NewLife.School
         #endregion
 
         #region 扩展属性
-        private Class _Class;
-        [XmlIgnore]
-        public Class Class
-        {
-            get
-            {
 
-                if (_Class == null && ClassID > 0 && !Dirtys.ContainsKey("Class"))
-                {
-                    _Class = Class.FindByID(ClassID);
-                    Dirtys["Class"] = true;
-                }
-                return _Class;
-            }
 
-            set { _Class = value; }
-        }
-
-        [DisplayName("班级")]
-        [Map(__.ClassID)]
-        public String ClassName { get { return Class == null ? null : Class.Name; } }
-
-        /// <summary>性别</summary>
-        [DisplayName("性别")]
-        [Map(__.Sex)]
-        public SexKinds SexKind { get { return (SexKinds)Sex; } set { Sex = (Int32)value; } }
         #endregion
 
         #region 扩展查询
-            ﻿
+        public static Class FindByID(Int32 id)
+        {
+            if (id <= 0) return null;
 
+            if (Meta.Count >= 1000)
+                return Find(__.ID, id);
+            //return Meta.SingleCache[id];
+            else // 实体缓存
+                return Meta.Cache.Entities.Find(__.ID, id);
+        }
         #endregion
 
         #region 高级查询
@@ -140,7 +119,7 @@ namespace NewLife.School
         /// <param name="key">关键字</param>
         /// <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
         /// <returns>实体集</returns>
-        public static EntityList<Student> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
+        public static EntityList<Class> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
         {
             // WhereExpression重载&和|运算符，作为And和Or的替代
             // SearchWhereByKeys系列方法用于构建针对字符串字段的模糊搜索，第二个参数可指定要搜索的字段

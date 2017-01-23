@@ -13,3 +13,5 @@
 /NewLife.School.Web/obj/Debug
 /NewLife.School.Web/Plugins
 /packages
+*.log
+*.user

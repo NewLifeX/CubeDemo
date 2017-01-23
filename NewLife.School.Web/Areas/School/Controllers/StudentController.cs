@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using NewLife.Cube;
 using NewLife.School;
+using NewLife.School.Entity;
 
 namespace NewLife.School.Web.Areas.School.Controllers
 {
