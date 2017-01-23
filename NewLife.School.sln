@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 13.00
+# Visual Studio 2015
+VisualStudioVersion = 13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLife.School.Web", "NewLife.School.Web\NewLife.School.Web.csproj", "{0E1A96CD-3709-46B1-BFA3-57A4F7BA75A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLife.School", "NewLife.School\NewLife.School.csproj", "{68AA8105-3129-4FCA-9D1E-760624ABF88E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E1A96CD-3709-46B1-BFA3-57A4F7BA75A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1A96CD-3709-46B1-BFA3-57A4F7BA75A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1A96CD-3709-46B1-BFA3-57A4F7BA75A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1A96CD-3709-46B1-BFA3-57A4F7BA75A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68AA8105-3129-4FCA-9D1E-760624ABF88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68AA8105-3129-4FCA-9D1E-760624ABF88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68AA8105-3129-4FCA-9D1E-760624ABF88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68AA8105-3129-4FCA-9D1E-760624ABF88E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

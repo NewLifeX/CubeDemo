@@ -3,3 +3,13 @@
 ################################################################################
 
 /.vs
+/Log
+/Data
+/NewLife.School/bin/Debug
+/NewLife.School/obj/Debug
+*.config
+/NewLife.School.Web/bin
+/NewLife.School.Web/Content
+/NewLife.School.Web/obj/Debug
+/NewLife.School.Web/Plugins
+/packages

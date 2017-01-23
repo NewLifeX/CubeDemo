@@ -116,12 +116,12 @@ namespace NewLife.School
         }
 
         [DisplayName("班级")]
-        [BindRelation(__.ClassID)]
+        [Map(__.ClassID)]
         public String ClassName { get { return Class == null ? null : Class.Name; } }
 
         /// <summary>性别</summary>
         [DisplayName("性别")]
-        [BindRelation(__.Sex)]
+        [Map(__.Sex)]
         public SexKinds SexKind { get { return (SexKinds)Sex; } set { Sex = (Int32)value; } }
         #endregion
 
