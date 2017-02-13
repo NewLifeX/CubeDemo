@@ -13,7 +13,7 @@
 }
 -->
 </style>
-由Stone/X2生成于：2017-01-23 16:02:42 <BR />
+由Stone/X2生成于：2017-02-13 14:27:43 <BR />
 
 Class：
 <strong>班级 （Class）</strong> <BR>
@@ -315,6 +315,227 @@ Student：
     <td>备注 </td>
     <td>Remark</td>
     <td>Remark</td>
+    <td>String</td>
+    <td>200</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+
+Trade：
+<strong>交易 （Trade）</strong> <BR>
+<table border="0" cellspacing="0" class="dbtable">
+  <tr align="center" valign="middle" class="caption">
+    <td width="150">中文名</td>
+    <td width="150">英文名</td>
+    <td width="150">字段名</td>
+    <td width="75">数据类型</td>
+    <td width="50">大小</td>
+    <td width="35">主键</td>
+    <td width="35">唯一</td>
+    <td width="35">必填</td>
+    <td width="75">默认值</td>
+    <td width="150">描述</td>
+  </tr>
+  <tr class="dbbody">
+    <td>订单编号 </td>
+    <td>ID</td>
+    <td>ID</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">是</td>
+    <td align="center">是</td>
+    <td align="center">是</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>节点号 </td>
+    <td>NodeID</td>
+    <td>NodeID</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>订单号 </td>
+    <td>Tid</td>
+    <td>Tid</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>状态 </td>
+    <td>Status</td>
+    <td>Status</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>是否支付 </td>
+    <td>PayStatus</td>
+    <td>PayStatus</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>是否发货 </td>
+    <td>ShipStatus</td>
+    <td>ShipStatus</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货人电话 </td>
+    <td>CreateIPReceiverPhone</td>
+    <td>CreateIPReceiverPhone</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货人手机号 </td>
+    <td>ReceiverMobile</td>
+    <td>ReceiverMobile</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货省 </td>
+    <td>ReceiverState</td>
+    <td>ReceiverState</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货人区 </td>
+    <td>ReceiverCity</td>
+    <td>ReceiverCity</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货区 </td>
+    <td>Receiver_District</td>
+    <td>Receiver_District</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>收货地址 </td>
+    <td>ReceiverAddress</td>
+    <td>ReceiverAddress</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>买家昵称 </td>
+    <td>BuyerName</td>
+    <td>BuyerName</td>
+    <td>String</td>
+    <td>50</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>创建时间 </td>
+    <td>Created</td>
+    <td>Created</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>是否发送过 </td>
+    <td>Modified</td>
+    <td>Modified</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>更新者 </td>
+    <td>IsSend</td>
+    <td>IsSend</td>
+    <td>Int32</td>
+    <td>10</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr class="dbbody">
+    <td>错误原因 </td>
+    <td>ErrorMsg</td>
+    <td>ErrorMsg</td>
     <td>String</td>
     <td>200</td>
     <td align="center">&nbsp;</td>

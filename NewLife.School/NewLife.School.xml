@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Tables Version="9.2.6229.20238">
+<Tables Version="9.4.6253.19793">
   <Table Name="Class" Description="班级" DbType="SqlServer">
     <Columns>
       <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
@@ -36,5 +36,26 @@
     <Relations>
       <Relation Column="ClassID" RelationTable="Class" RelationColumn="ID" />
     </Relations>
+  </Table>
+  <Table Name="Trade" Description="交易" DbType="SqlServer">
+    <Columns>
+      <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="订单编号" />
+      <Column Name="NodeID" DataType="Int32" Description="节点号" />
+      <Column Name="Tid" DataType="String" Description="订单号" />
+      <Column Name="Status" DataType="Int32" Description="状态" />
+      <Column Name="PayStatus" DataType="Int32" Description="是否支付" />
+      <Column Name="ShipStatus" DataType="Int32" Description="是否发货" />
+      <Column Name="CreateIPReceiverPhone" DataType="String" Description="收货人电话" />
+      <Column Name="ReceiverMobile" DataType="String" Description="收货人手机号" />
+      <Column Name="ReceiverState" DataType="String" Description="收货省" />
+      <Column Name="ReceiverCity" DataType="String" Description="收货人区" />
+      <Column Name="Receiver_District" DataType="String" Description="收货区" />
+      <Column Name="ReceiverAddress" DataType="String" Description="收货地址" />
+      <Column Name="BuyerName" DataType="String" Description="买家昵称" />
+      <Column Name="Created" DataType="Int32" Description="创建时间" />
+      <Column Name="Modified" DataType="Int32" Description="是否发送过" />
+      <Column Name="IsSend" DataType="Int32" Description="更新者" />
+      <Column Name="ErrorMsg" DataType="String" Length="200" Description="错误原因" />
+    </Columns>
   </Table>
 </Tables>
