@@ -9847,40 +9847,48 @@
             <summary>销毁</summary>
             <param name="disposing"></param>
         </member>
-        <member name="M:NewLife.Web.WebClientX.Create(NewLife.Net.NetUri)">
+        <member name="M:NewLife.Web.WebClientX.Create">
             <summary>创建客户端会话</summary>
-            <param name="uri"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Web.WebClientX.Get(System.String,System.Byte[])">
-            <summary>下载数据</summary>
+        <member name="M:NewLife.Web.WebClientX.SendAsync(System.String,System.Net.Http.HttpContent)">
+            <summary>发送请求，获取响应</summary>
             <param name="address"></param>
-            <param name="data"></param>
+            <param name="content"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Web.WebClientX.PostAsync(System.String,System.Byte[])">
-            <summary>异步上传数据</summary>
-            <param name="address"></param>
-            <param name="data"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Web.WebClientX.DownloadData(System.String)">
+        <member name="M:NewLife.Web.WebClientX.DownloadDataAsync(System.String)">
             <summary>下载数据</summary>
             <param name="address"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Web.WebClientX.DownloadString(System.String)">
+        <member name="M:NewLife.Web.WebClientX.DownloadStringAsync(System.String)">
             <summary>下载字符串</summary>
             <param name="address"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Web.WebClientX.DownloadFile(System.String,System.String)">
+        <member name="M:NewLife.Web.WebClientX.DownloadFileAsync(System.String,System.String)">
             <summary>下载文件</summary>
             <param name="address"></param>
             <param name="fileName"></param>
         </member>
         <member name="M:NewLife.Web.WebClientX.UploadDataTaskAsync(System.String,System.Byte[])">
             <summary>异步上传数据</summary>
+            <param name="address"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:NewLife.Web.WebClientX.UploadValuesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>异步上传表单</summary>
+            <param name="address"></param>
+            <param name="collection"></param>
+        </member>
+        <member name="M:NewLife.Web.WebClientX.UploadStringAsync(System.String,System.String)">
+            <summary>异步上传字符串</summary>
+            <param name="address"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:NewLife.Web.WebClientX.UploadJsonAsync(System.String,System.Object)">
+            <summary>异步上传Json对象</summary>
             <param name="address"></param>
             <param name="data"></param>
         </member>

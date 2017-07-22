@@ -935,6 +935,13 @@
             <summary>拦截异常</summary>
             <param name="ctx"></param>
         </member>
+        <member name="T:NewLife.Cube.Controllers.CubeHomeController">
+            <summary>主页面</summary>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.CubeHomeController.Index">
+            <summary>主页面</summary>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.MvcApplication">
             <summary>
             注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
@@ -1232,6 +1239,9 @@
         </member>
         <member name="P:NewLife.Cube.Setting.StartPage">
             <summary>工作台页面。进入后台的第一个内容页</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.Layout">
+            <summary>布局页。</summary>
         </member>
         <member name="M:NewLife.Cube.Setting.#ctor">
             <summary>实例化</summary>

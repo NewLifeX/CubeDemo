@@ -4778,6 +4778,9 @@
         <member name="P:XCode.Membership.ManageProvider.Menu">
             <summary>菜单工厂</summary>
         </member>
+        <member name="M:XCode.Membership.ManageProvider.Init">
+            <summary>预热基础数据</summary>
+        </member>
         <member name="P:XCode.Membership.ManageProvider.UserType">
             <summary>管理用户类</summary>
         </member>
