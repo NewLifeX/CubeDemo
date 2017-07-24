@@ -9712,18 +9712,31 @@
         </member>
         <member name="M:NewLife.Web.OAuthClient.Authorize(System.String,System.String)">
             <summary>跳转验证</summary>
-            <param name="redirect"></param>
-            <param name="state"></param>
+            <param name="redirect">验证完成后调整的目标地址</param>
+            <param name="state">用户状态数据</param>
         </member>
         <member name="M:NewLife.Web.OAuthClient.GetAccessToken(System.String)">
             <summary>根据授权码获取访问令牌</summary>
             <param name="code"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Web.OAuthClient.GetUrl(System.String)">
+            <summary>替换地址模版参数</summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
         <member name="M:NewLife.Web.OAuthClient.Request(System.String)">
             <summary>创建客户端</summary>
             <param name="url">路径</param>
             <returns></returns>
+        </member>
+        <member name="P:NewLife.Web.OAuthClient.Log">
+            <summary>日志</summary>
+        </member>
+        <member name="M:NewLife.Web.OAuthClient.WriteLog(System.String,System.Object[])">
+            <summary>写日志</summary>
+            <param name="format"></param>
+            <param name="args"></param>
         </member>
         <member name="T:NewLife.Web.Pager">
             <summary>分页器。包含分页排序参数，支持构造Url的功能</summary>
@@ -9847,7 +9860,7 @@
             <summary>销毁</summary>
             <param name="disposing"></param>
         </member>
-        <member name="M:NewLife.Web.WebClientX.Create">
+        <member name="M:NewLife.Web.WebClientX.EnsureCreate">
             <summary>创建客户端会话</summary>
             <returns></returns>
         </member>

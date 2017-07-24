@@ -12,7 +12,7 @@ namespace NewLife.School.Entity
     [Serializable]
     [DataObject]
     [Description("交易")]
-    [BindTable("Trade", Description = "交易", ConnName = "School", DbType = DatabaseType.SqlServer)]
+    [BindTable("Trade", Description = "交易", ConnName = "Bill", DbType = DatabaseType.SqlServer)]
     public partial class Trade : ITrade
     {
         #region 属性

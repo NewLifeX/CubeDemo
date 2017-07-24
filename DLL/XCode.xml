@@ -5800,6 +5800,25 @@
             <summary>用户在线</summary>
             <summary>用户在线</summary>
         </member>
+        <member name="M:XCode.Membership.UserOnline`1.Valid(System.Boolean)">
+            <summary>验证数据，通过抛出异常的方式提示验证失败。</summary>
+            <param name="isNew"></param>
+        </member>
+        <member name="M:XCode.Membership.UserOnline`1.FindByID(System.Int32)">
+            <summary>根据会话编号查找</summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Membership.UserOnline`1.FindBySessionID(System.String)">
+            <summary>根据会话编号查找</summary>
+            <param name="sessionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Membership.UserOnline`1.FindAllByUserID(System.Int32)">
+            <summary>根据用户编号查找</summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
         <member name="M:XCode.Membership.UserOnline`1.Search(System.Int32,System.DateTime,System.DateTime,System.String,NewLife.Data.PageParameter)">
             <summary>查询满足条件的记录集，分页、排序</summary>
             <param name="userid">用户编号</param>
@@ -5809,20 +5828,44 @@
             <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
             <returns>实体集</returns>
         </member>
+        <member name="M:XCode.Membership.UserOnline`1.SetStatus(System.String,System.String,System.Int32,System.String)">
+            <summary>设置会话状态</summary>
+            <param name="sessionid"></param>
+            <param name="status"></param>
+            <param name="userid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Membership.UserOnline`1.SetWebStatus(System.String)">
+            <summary>设置网页会话状态</summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Membership.UserOnline`1.ClearExpire(System.Int32)">
+            <summary>删除过期，指定过期时间</summary>
+            <param name="secTimeout">超时时间，20 * 60秒</param>
+            <returns></returns>
+        </member>
         <member name="P:XCode.Membership.UserOnline`1.ID">
             <summary>编号</summary>
         </member>
         <member name="P:XCode.Membership.UserOnline`1.UserID">
             <summary>用户</summary>
         </member>
-        <member name="P:XCode.Membership.UserOnline`1.UserName">
-            <summary>用户名</summary>
+        <member name="P:XCode.Membership.UserOnline`1.Name">
+            <summary>名称</summary>
         </member>
         <member name="P:XCode.Membership.UserOnline`1.SessionID">
-            <summary>会话</summary>
+            <summary>会话。Web的SessionID或Server的会话编号</summary>
         </member>
-        <member name="P:XCode.Membership.UserOnline`1.Action">
-            <summary>操作</summary>
+        <member name="P:XCode.Membership.UserOnline`1.Times">
+            <summary>次数</summary>
+        </member>
+        <member name="P:XCode.Membership.UserOnline`1.Status">
+            <summary>状态</summary>
+        </member>
+        <member name="P:XCode.Membership.UserOnline`1.OnlineTime">
+            <summary>在线时间。本次在线总时间，秒</summary>
         </member>
         <member name="P:XCode.Membership.UserOnline`1.CreateIP">
             <summary>创建地址</summary>
@@ -5851,14 +5894,20 @@
         <member name="F:XCode.Membership.UserOnline`1._.UserID">
             <summary>用户</summary>
         </member>
-        <member name="F:XCode.Membership.UserOnline`1._.UserName">
-            <summary>用户名</summary>
+        <member name="F:XCode.Membership.UserOnline`1._.Name">
+            <summary>名称</summary>
         </member>
         <member name="F:XCode.Membership.UserOnline`1._.SessionID">
-            <summary>会话</summary>
+            <summary>会话。Web的SessionID或Server的会话编号</summary>
         </member>
-        <member name="F:XCode.Membership.UserOnline`1._.Action">
-            <summary>操作</summary>
+        <member name="F:XCode.Membership.UserOnline`1._.Times">
+            <summary>次数</summary>
+        </member>
+        <member name="F:XCode.Membership.UserOnline`1._.Status">
+            <summary>状态</summary>
+        </member>
+        <member name="F:XCode.Membership.UserOnline`1._.OnlineTime">
+            <summary>在线时间。本次在线总时间，秒</summary>
         </member>
         <member name="F:XCode.Membership.UserOnline`1._.CreateIP">
             <summary>创建地址</summary>
@@ -5878,14 +5927,20 @@
         <member name="F:XCode.Membership.UserOnline`1.__.UserID">
             <summary>用户</summary>
         </member>
-        <member name="F:XCode.Membership.UserOnline`1.__.UserName">
-            <summary>用户名</summary>
+        <member name="F:XCode.Membership.UserOnline`1.__.Name">
+            <summary>名称</summary>
         </member>
         <member name="F:XCode.Membership.UserOnline`1.__.SessionID">
-            <summary>会话</summary>
+            <summary>会话。Web的SessionID或Server的会话编号</summary>
         </member>
-        <member name="F:XCode.Membership.UserOnline`1.__.Action">
-            <summary>操作</summary>
+        <member name="F:XCode.Membership.UserOnline`1.__.Times">
+            <summary>次数</summary>
+        </member>
+        <member name="F:XCode.Membership.UserOnline`1.__.Status">
+            <summary>状态</summary>
+        </member>
+        <member name="F:XCode.Membership.UserOnline`1.__.OnlineTime">
+            <summary>在线时间。本次在线总时间，秒</summary>
         </member>
         <member name="F:XCode.Membership.UserOnline`1.__.CreateIP">
             <summary>创建地址</summary>
@@ -5905,14 +5960,20 @@
         <member name="P:XCode.Membership.IUserOnline.UserID">
             <summary>用户</summary>
         </member>
-        <member name="P:XCode.Membership.IUserOnline.UserName">
-            <summary>用户名</summary>
+        <member name="P:XCode.Membership.IUserOnline.Name">
+            <summary>名称</summary>
         </member>
         <member name="P:XCode.Membership.IUserOnline.SessionID">
-            <summary>会话</summary>
+            <summary>会话。Web的SessionID或Server的会话编号</summary>
         </member>
-        <member name="P:XCode.Membership.IUserOnline.Action">
-            <summary>操作</summary>
+        <member name="P:XCode.Membership.IUserOnline.Times">
+            <summary>次数</summary>
+        </member>
+        <member name="P:XCode.Membership.IUserOnline.Status">
+            <summary>状态</summary>
+        </member>
+        <member name="P:XCode.Membership.IUserOnline.OnlineTime">
+            <summary>在线时间。本次在线总时间，秒</summary>
         </member>
         <member name="P:XCode.Membership.IUserOnline.CreateIP">
             <summary>创建地址</summary>

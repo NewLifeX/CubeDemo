@@ -9,5 +9,13 @@ using NewLife.School.Entity;
 
 namespace NewLife.School.Web.Areas.School.Controllers
 {
-    public class StudentController : EntityController<Student> { }
+    public class StudentController : EntityController<Student>
+    {
+        static StudentController()
+        {
+            ListFields.RemoveField("CreateUserID");
+            ListFields.RemoveField("UpdateUserID");
+            //FormFields
+        }
+    }
 }

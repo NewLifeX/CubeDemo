@@ -145,6 +145,14 @@
         <member name="T:NewLife.Cube.Admin.Controllers.CubeController">
             <summary>系统设置控制器</summary>
         </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.UserOnlineController">
+            <summary>用户在线控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserOnlineController.Add(XCode.Membership.UserOnline)">
+            <summary>不允许添加修改日志</summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.XCodeController">
             <summary>设置控制器</summary>
         </member>

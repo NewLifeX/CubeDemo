@@ -37,7 +37,7 @@
       <Relation Column="ClassID" RelationTable="Class" RelationColumn="ID" />
     </Relations>
   </Table>
-  <Table Name="Trade" Description="交易" DbType="SqlServer">
+  <Table Name="Trade" Description="交易" ConnName="Bill" DbType="SqlServer">
     <Columns>
       <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="订单编号" />
       <Column Name="NodeID" DataType="Int32" Description="节点号" />
