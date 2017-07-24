@@ -19,7 +19,7 @@ namespace Test
 
             try
             {
-                TestInsert();
+                Test2();
             }
             catch (Exception ex)
             {
@@ -82,6 +82,54 @@ namespace Test
             Console.WriteLine("数据写入完毕！");
             var ms = sw.ElapsedMilliseconds;
             Console.WriteLine("耗时：{0:n0}ms 平均速度：{1:n0}tps", ms, list.Count * 1000L / ms);
+        }
+
+        static void Test2()
+        {
+            //var st = new Student();
+            //st.Name = "大石头";
+            //st.Insert();
+
+            //Console.WriteLine(st.ID);
+
+            var st = Student.FindByName("大石头");
+            if (st == null) st = new Student();
+            st.Name = "大石头" + DateTime.Now.ToFullString();
+            //st.Update();
+            st.Save();
+            Console.WriteLine(st);
+
+            var list = Student.FindAll();
+            foreach (var item in list)
+            {
+                Console.WriteLine("{0} {1}", item.ID, item.Name);
+            }
+
+            //st.Delete();
+
+            using (var tran = Student.Meta.CreateTrans())
+            {
+                st = new Student();
+                st.Name = "ABCD";
+                st.Insert();
+
+                tran.Commit();
+            }
+
+            Student.Meta.Session.BeginTrans();
+            try
+            {
+                st = new Student();
+                st.Name = "ABCD";
+                st.Insert();
+
+                Student.Meta.Session.Commit();
+            }
+            catch //(Exception)
+            {
+                Student.Meta.Session.Rollback();
+                throw;
+            }
         }
     }
 }

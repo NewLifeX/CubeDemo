@@ -114,6 +114,10 @@ namespace NewLife.School.Entity
         #endregion
 
         #region 扩展查询
+        public static Student FindByName(String name)
+        {
+            return Find(__.Name, name);
+        }
 
         /// <summary>根据班级查找</summary>
         /// <param name="classid">班级</param>
