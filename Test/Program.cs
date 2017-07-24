@@ -8,6 +8,7 @@ using NewLife.Log;
 using NewLife.School.Entity;
 using NewLife.Security;
 using XCode;
+using XCode.Membership;
 
 namespace Test
 {
@@ -130,6 +131,8 @@ namespace Test
                 Student.Meta.Session.Rollback();
                 throw;
             }
+
+            LogProvider.Provider.WriteLog("", "", "");
         }
     }
 }
