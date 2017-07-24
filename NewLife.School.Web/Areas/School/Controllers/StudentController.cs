@@ -29,7 +29,7 @@ namespace NewLife.School.Web.Areas.School.Controllers
         {
             //return base.FindAll(p);
             var classid = p["classid"].ToInt();
-            return Student.Search(classid, DateTime.MinValue, DateTime.MinValue, p["q"], p);
+            return Student.Search(classid, p["dtStart"].ToDateTime(), p["dtEnd"].ToDateTime(), p["q"], p);
         }
     }
 }

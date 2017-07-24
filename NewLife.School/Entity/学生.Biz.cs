@@ -97,30 +97,15 @@ namespace NewLife.School.Entity
         #endregion
 
         #region 扩展属性
-
-        [NonSerialized]
-        private Class _Class;
         /// <summary>该学生所对应的班级</summary>
         [XmlIgnore]
-        public Class Class
-        {
-            get
-            {
-                if (_Class == null && ClassID > 0 && !Dirtys.ContainsKey("Class"))
-                {
-                    _Class = Class.FindByID(ClassID);
-                    Dirtys["Class"] = true;
-                }
-                return _Class;
-            }
-            set { _Class = value; }
-        }
+        public Class Class { get { return Extends.Get(nameof(Class), k => Class.FindByID(ClassID)); } }
 
         /// <summary>该学生所对应的班级名称</summary>
         [XmlIgnore]
         [DisplayName("班级")]
-        [Map(__.ClassID, typeof(Class))]
-        public String ClassName { get { return Class == null ? null : Class.Name; } }
+        [Map(__.ClassID, typeof(Class), "ID")]
+        public String ClassName { get { return Class?.Name; } }
 
         /// <summary>性别</summary>
         [DisplayName("性别")]
