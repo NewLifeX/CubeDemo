@@ -13,7 +13,6 @@ namespace NewLife.School.Entity
     [DataObject]
     [Description("学生")]
     [BindIndex("IX_Student_ClassID", false, "ClassID")]
-    [BindRelation("ClassID", false, "Class", "ID")]
     [BindTable("Student", Description = "学生", ConnName = "School", DbType = DatabaseType.SqlServer)]
     public partial class Student : IStudent
     {
@@ -23,7 +22,7 @@ namespace NewLife.School.Entity
         [DisplayName("编号")]
         [Description("编号")]
         [DataObjectField(true, true, false, 10)]
-        [BindColumn(1, "ID", "编号", null, "int", 10, 0, false)]
+        [BindColumn("ID", "编号", "int", 10, 0)]
         public virtual Int32 ID
         {
             get { return _ID; }
@@ -34,8 +33,8 @@ namespace NewLife.School.Entity
         /// <summary>班级</summary>
         [DisplayName("班级")]
         [Description("班级")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(2, "ClassID", "班级", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("ClassID", "班级", "int", 10, 0)]
         public virtual Int32 ClassID
         {
             get { return _ClassID; }
@@ -47,7 +46,7 @@ namespace NewLife.School.Entity
         [DisplayName("名称")]
         [Description("名称")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(3, "Name", "名称", null, "nvarchar(50)", 0, 0, true, Master=true)]
+        [BindColumn("Name", "名称", "nvarchar(50)", 0, 0, Master=true)]
         public virtual String Name
         {
             get { return _Name; }
@@ -58,8 +57,8 @@ namespace NewLife.School.Entity
         /// <summary>性别</summary>
         [DisplayName("性别")]
         [Description("性别")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(4, "Sex", "性别", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("Sex", "性别", "int", 10, 0)]
         public virtual Int32 Sex
         {
             get { return _Sex; }
@@ -70,8 +69,8 @@ namespace NewLife.School.Entity
         /// <summary>年龄</summary>
         [DisplayName("年龄")]
         [Description("年龄")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(5, "Age", "年龄", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("Age", "年龄", "int", 10, 0)]
         public virtual Int32 Age
         {
             get { return _Age; }
@@ -83,7 +82,7 @@ namespace NewLife.School.Entity
         [DisplayName("手机")]
         [Description("手机")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(6, "Mobile", "手机", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Mobile", "手机", "nvarchar(50)", 0, 0)]
         public virtual String Mobile
         {
             get { return _Mobile; }
@@ -95,7 +94,7 @@ namespace NewLife.School.Entity
         [DisplayName("地址")]
         [Description("地址")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(7, "Address", "地址", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Address", "地址", "nvarchar(50)", 0, 0)]
         public virtual String Address
         {
             get { return _Address; }
@@ -106,8 +105,8 @@ namespace NewLife.School.Entity
         /// <summary>创建者</summary>
         [DisplayName("创建者")]
         [Description("创建者")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(8, "CreateUserID", "创建者", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("CreateUserID", "创建者", "int", 10, 0)]
         public virtual Int32 CreateUserID
         {
             get { return _CreateUserID; }
@@ -119,7 +118,7 @@ namespace NewLife.School.Entity
         [DisplayName("创建时间")]
         [Description("创建时间")]
         [DataObjectField(false, false, true, 3)]
-        [BindColumn(9, "CreateTime", "创建时间", null, "datetime", 3, 0, false)]
+        [BindColumn("CreateTime", "创建时间", "datetime", 3, 0)]
         public virtual DateTime CreateTime
         {
             get { return _CreateTime; }
@@ -131,7 +130,7 @@ namespace NewLife.School.Entity
         [DisplayName("创建地址")]
         [Description("创建地址")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(10, "CreateIP", "创建地址", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("CreateIP", "创建地址", "nvarchar(50)", 0, 0)]
         public virtual String CreateIP
         {
             get { return _CreateIP; }
@@ -142,8 +141,8 @@ namespace NewLife.School.Entity
         /// <summary>更新者</summary>
         [DisplayName("更新者")]
         [Description("更新者")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(11, "UpdateUserID", "更新者", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("UpdateUserID", "更新者", "int", 10, 0)]
         public virtual Int32 UpdateUserID
         {
             get { return _UpdateUserID; }
@@ -155,7 +154,7 @@ namespace NewLife.School.Entity
         [DisplayName("更新时间")]
         [Description("更新时间")]
         [DataObjectField(false, false, true, 3)]
-        [BindColumn(12, "UpdateTime", "更新时间", null, "datetime", 3, 0, false)]
+        [BindColumn("UpdateTime", "更新时间", "datetime", 3, 0)]
         public virtual DateTime UpdateTime
         {
             get { return _UpdateTime; }
@@ -167,7 +166,7 @@ namespace NewLife.School.Entity
         [DisplayName("更新地址")]
         [Description("更新地址")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(13, "UpdateIP", "更新地址", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("UpdateIP", "更新地址", "nvarchar(50)", 0, 0)]
         public virtual String UpdateIP
         {
             get { return _UpdateIP; }
@@ -179,7 +178,7 @@ namespace NewLife.School.Entity
         [DisplayName("备注")]
         [Description("备注")]
         [DataObjectField(false, false, true, 200)]
-        [BindColumn(14, "Remark", "备注", null, "nvarchar(200)", 0, 0, true)]
+        [BindColumn("Remark", "备注", "nvarchar(200)", 0, 0)]
         public virtual String Remark
         {
             get { return _Remark; }

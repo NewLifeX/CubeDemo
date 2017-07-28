@@ -107,7 +107,7 @@
         <member name="T:NewLife.Cube.Admin.Controllers.LogController">
             <summary>日志控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.LogController.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.Admin.Controllers.LogController.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -162,7 +162,7 @@
         <member name="T:NewLife.Cube.Admin.Controllers.UserController">
             <summary>用户控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -691,7 +691,7 @@
         <member name="M:NewLife.Cube.EntityController`1.#ctor">
             <summary>构造函数</summary>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.EntityController`1.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -958,6 +958,12 @@
         </member>
         <member name="M:NewLife.Cube.MvcApplication.Application_Start">
             <summary>应用程序启动</summary>
+        </member>
+        <member name="T:NewLife.Cube.PreApplicationStartCode">
+            <summary>应用启动代码</summary>
+        </member>
+        <member name="M:NewLife.Cube.PreApplicationStartCode.Start">
+            <summary>Registers pre-application start code for web pages.</summary>
         </member>
         <member name="T:NewLife.Cube.Precompiled.AssemblyExtensions">
             <summary>程序集的扩展方法</summary>

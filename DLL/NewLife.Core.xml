@@ -9569,9 +9569,6 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:NewLife.Web.ErrorModule.OnErrorComplete">
-            <summary>错误处理完成后执行。一般用于输出友好错误信息</summary>
-        </member>
         <member name="T:NewLife.Web.IErrorInfoProvider">
             <summary>错误信息提供者。用于为错误处理模块提供扩展信息</summary>
         </member>

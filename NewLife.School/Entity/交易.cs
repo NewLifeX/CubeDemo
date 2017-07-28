@@ -21,7 +21,7 @@ namespace NewLife.School.Entity
         [DisplayName("订单编号")]
         [Description("订单编号")]
         [DataObjectField(true, true, false, 10)]
-        [BindColumn(1, "ID", "订单编号", null, "int", 10, 0, false)]
+        [BindColumn("ID", "订单编号", "int", 10, 0)]
         public virtual Int32 ID
         {
             get { return _ID; }
@@ -32,8 +32,8 @@ namespace NewLife.School.Entity
         /// <summary>节点号</summary>
         [DisplayName("节点号")]
         [Description("节点号")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(2, "NodeID", "节点号", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("NodeID", "节点号", "int", 10, 0)]
         public virtual Int32 NodeID
         {
             get { return _NodeID; }
@@ -45,7 +45,7 @@ namespace NewLife.School.Entity
         [DisplayName("订单号")]
         [Description("订单号")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(3, "Tid", "订单号", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Tid", "订单号", "nvarchar(50)", 0, 0)]
         public virtual String Tid
         {
             get { return _Tid; }
@@ -56,8 +56,8 @@ namespace NewLife.School.Entity
         /// <summary>状态</summary>
         [DisplayName("状态")]
         [Description("状态")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(4, "Status", "状态", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("Status", "状态", "int", 10, 0)]
         public virtual Int32 Status
         {
             get { return _Status; }
@@ -68,8 +68,8 @@ namespace NewLife.School.Entity
         /// <summary>是否支付</summary>
         [DisplayName("是否支付")]
         [Description("是否支付")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(5, "PayStatus", "是否支付", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("PayStatus", "是否支付", "int", 10, 0)]
         public virtual Int32 PayStatus
         {
             get { return _PayStatus; }
@@ -80,8 +80,8 @@ namespace NewLife.School.Entity
         /// <summary>是否发货</summary>
         [DisplayName("是否发货")]
         [Description("是否发货")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(6, "ShipStatus", "是否发货", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("ShipStatus", "是否发货", "int", 10, 0)]
         public virtual Int32 ShipStatus
         {
             get { return _ShipStatus; }
@@ -93,7 +93,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货人电话")]
         [Description("收货人电话")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(7, "CreateIPReceiverPhone", "收货人电话", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("CreateIPReceiverPhone", "收货人电话", "nvarchar(50)", 0, 0)]
         public virtual String CreateIPReceiverPhone
         {
             get { return _CreateIPReceiverPhone; }
@@ -105,7 +105,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货人手机号")]
         [Description("收货人手机号")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(8, "ReceiverMobile", "收货人手机号", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("ReceiverMobile", "收货人手机号", "nvarchar(50)", 0, 0)]
         public virtual String ReceiverMobile
         {
             get { return _ReceiverMobile; }
@@ -117,7 +117,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货省")]
         [Description("收货省")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(9, "ReceiverState", "收货省", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("ReceiverState", "收货省", "nvarchar(50)", 0, 0)]
         public virtual String ReceiverState
         {
             get { return _ReceiverState; }
@@ -129,7 +129,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货人区")]
         [Description("收货人区")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(10, "ReceiverCity", "收货人区", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("ReceiverCity", "收货人区", "nvarchar(50)", 0, 0)]
         public virtual String ReceiverCity
         {
             get { return _ReceiverCity; }
@@ -141,7 +141,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货区")]
         [Description("收货区")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(11, "Receiver_District", "收货区", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Receiver_District", "收货区", "nvarchar(50)", 0, 0)]
         public virtual String Receiver_District
         {
             get { return _Receiver_District; }
@@ -153,7 +153,7 @@ namespace NewLife.School.Entity
         [DisplayName("收货地址")]
         [Description("收货地址")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(12, "ReceiverAddress", "收货地址", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("ReceiverAddress", "收货地址", "nvarchar(50)", 0, 0)]
         public virtual String ReceiverAddress
         {
             get { return _ReceiverAddress; }
@@ -165,7 +165,7 @@ namespace NewLife.School.Entity
         [DisplayName("买家昵称")]
         [Description("买家昵称")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(13, "BuyerName", "买家昵称", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("BuyerName", "买家昵称", "nvarchar(50)", 0, 0)]
         public virtual String BuyerName
         {
             get { return _BuyerName; }
@@ -176,8 +176,8 @@ namespace NewLife.School.Entity
         /// <summary>创建时间</summary>
         [DisplayName("创建时间")]
         [Description("创建时间")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(14, "Created", "创建时间", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("Created", "创建时间", "int", 10, 0)]
         public virtual Int32 Created
         {
             get { return _Created; }
@@ -188,8 +188,8 @@ namespace NewLife.School.Entity
         /// <summary>是否发送过</summary>
         [DisplayName("是否发送过")]
         [Description("是否发送过")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(15, "Modified", "是否发送过", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("Modified", "是否发送过", "int", 10, 0)]
         public virtual Int32 Modified
         {
             get { return _Modified; }
@@ -200,8 +200,8 @@ namespace NewLife.School.Entity
         /// <summary>更新者</summary>
         [DisplayName("更新者")]
         [Description("更新者")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(16, "IsSend", "更新者", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("IsSend", "更新者", "int", 10, 0)]
         public virtual Int32 IsSend
         {
             get { return _IsSend; }
@@ -213,7 +213,7 @@ namespace NewLife.School.Entity
         [DisplayName("错误原因")]
         [Description("错误原因")]
         [DataObjectField(false, false, true, 200)]
-        [BindColumn(17, "ErrorMsg", "错误原因", null, "nvarchar(200)", 0, 0, true)]
+        [BindColumn("ErrorMsg", "错误原因", "nvarchar(200)", 0, 0)]
         public virtual String ErrorMsg
         {
             get { return _ErrorMsg; }

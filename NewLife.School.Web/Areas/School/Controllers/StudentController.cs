@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using NewLife.Cube;
-using NewLife.School;
 using NewLife.School.Entity;
 using NewLife.Web;
 using XCode;
@@ -25,7 +20,7 @@ namespace NewLife.School.Web.Areas.School.Controllers
             return base.Find(key);
         }
 
-        protected override EntityList<Student> FindAll(Pager p)
+        protected override EntityList<Student> Search(Pager p)
         {
             //return base.FindAll(p);
             var classid = p["classid"].ToInt();

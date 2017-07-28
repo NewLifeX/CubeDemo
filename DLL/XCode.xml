@@ -7,17 +7,11 @@
         <member name="T:XCode.BindColumnAttribute">
             <summary>指定实体类属性所绑定数据字段信息。</summary>
         </member>
-        <member name="P:XCode.BindColumnAttribute.Order">
-            <summary>顺序</summary>
-        </member>
         <member name="P:XCode.BindColumnAttribute.Name">
             <summary>字段名</summary>
         </member>
         <member name="P:XCode.BindColumnAttribute.Description">
             <summary>描述</summary>
-        </member>
-        <member name="P:XCode.BindColumnAttribute.DefaultValue">
-            <summary>默认值</summary>
         </member>
         <member name="P:XCode.BindColumnAttribute.RawType">
             <summary>
@@ -31,9 +25,6 @@
         <member name="P:XCode.BindColumnAttribute.Scale">
             <summary>位数</summary>
         </member>
-        <member name="P:XCode.BindColumnAttribute.IsUnicode">
-            <summary>是否Unicode</summary>
-        </member>
         <member name="P:XCode.BindColumnAttribute.Master">
             <summary>是否主字段。主字段作为业务主要字段，代表当前数据行意义</summary>
         </member>
@@ -44,12 +35,28 @@
             <summary>构造函数</summary>
             <param name="name">字段名</param>
         </member>
-        <member name="M:XCode.BindColumnAttribute.#ctor(System.Int32,System.String,System.String,System.String)">
+        <member name="M:XCode.BindColumnAttribute.#ctor(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>构造函数</summary>
+            <param name="name">名称</param>
+            <param name="description"></param>
+            <param name="rawType"></param>
+            <param name="precision"></param>
+            <param name="scale"></param>
+        </member>
+        <member name="M:XCode.BindColumnAttribute.#ctor(System.Int32,System.String,System.String)">
             <summary>构造函数</summary>
             <param name="order"></param>
             <param name="name">名称</param>
             <param name="description"></param>
-            <param name="defaultValue"></param>
+        </member>
+        <member name="M:XCode.BindColumnAttribute.#ctor(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>构造函数</summary>
+            <param name="order">名称</param>
+            <param name="name">名称</param>
+            <param name="description"></param>
+            <param name="rawType"></param>
+            <param name="precision"></param>
+            <param name="scale"></param>
         </member>
         <member name="M:XCode.BindColumnAttribute.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Boolean)">
             <summary>构造函数</summary>
@@ -192,10 +199,6 @@
         <member name="M:XCode.BindRelationAttribute.#ctor(System.String)">
             <summary>指定一个表内关联关系</summary>
             <param name="relationcolumn"></param>
-        </member>
-        <member name="M:XCode.BindRelationAttribute.Fill(XCode.DataAccessLayer.IDataRelation)">
-            <summary>填充关系</summary>
-            <param name="relation"></param>
         </member>
         <member name="T:XCode.Code.EntityAssembly">
             <summary>实体程序集</summary>
@@ -624,21 +627,6 @@
             <param name="description"></param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.IModelResolver.Connect(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataTable)">
-            <summary>连接两个表。
-            实际上是猜测它们之间的关系，根据一个字段名是否等于另一个表的表名加某个字段名来判断是否存在关系。</summary>
-            <param name="table"></param>
-            <param name="rtable"></param>
-        </member>
-        <member name="M:XCode.DataAccessLayer.IModelResolver.GuessRelation(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataTable,System.String,XCode.DataAccessLayer.IDataColumn,System.String)">
-            <summary>猜测表间关系</summary>
-            <param name="table"></param>
-            <param name="rtable"></param>
-            <param name="rname"></param>
-            <param name="column"></param>
-            <param name="name">名称</param>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.IModelResolver.Fix(XCode.DataAccessLayer.IDataTable)">
             <summary>修正数据</summary>
             <param name="table"></param>
@@ -666,21 +654,6 @@
             <param name="description"></param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.ModelResolver.Connect(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataTable)">
-            <summary>连接两个表。
-            实际上是猜测它们之间的关系，根据一个字段名是否等于另一个表的表名加某个字段名来判断是否存在关系。</summary>
-            <param name="table"></param>
-            <param name="rtable"></param>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelResolver.GuessRelation(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataTable,System.String,XCode.DataAccessLayer.IDataColumn,System.String)">
-            <summary>猜测表间关系</summary>
-            <param name="table"></param>
-            <param name="rtable"></param>
-            <param name="rname"></param>
-            <param name="column"></param>
-            <param name="name">名称</param>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.ModelResolver.Fix(XCode.DataAccessLayer.IDataTable)">
             <summary>修正数据</summary>
             <param name="table"></param>
@@ -688,14 +661,6 @@
         <member name="M:XCode.DataAccessLayer.ModelResolver.Fix(XCode.DataAccessLayer.IDataColumn)">
             <summary>修正数据列</summary>
             <param name="column"></param>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelResolver.FixRelationBySingleIndex(XCode.DataAccessLayer.IDataTable)">
-            <summary>根据单字段索引修正对应的关系</summary>
-            <param name="table"></param>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelResolver.CreateIndexForRelation(XCode.DataAccessLayer.IDataTable)">
-            <summary>给所有关系字段建立索引</summary>
-            <param name="table"></param>
         </member>
         <member name="M:XCode.DataAccessLayer.ModelResolver.FixPrimaryByIndex(XCode.DataAccessLayer.IDataTable)">
             <summary>从索引中修正主键</summary>
@@ -1059,57 +1024,6 @@
             <param name="tableName"></param>
             <returns></returns>
         </member>
-        <member name="T:XCode.DataAccessLayer.Distributed">
-            <summary>
-            分布式数据库。同时操作多个数据库，多读多写，读写分析。
-            支持：
-            1，一主多从写入（主库同步写入从库异步写入）；
-            2，多主多从写入（主库同步写入从库异步写入）；
-            3，按权重分布式读取；
-            </summary>
-            <remarks>
-            1，通过连接字符串配置读写服务器组，并加上权重，如“WriteServer='connA*1,connC*0' ReadServer='connB*8,connD'”；
-            2，对于写服务器，权重大于0表示作为主服务器，操作返回值取主服务器操作总和，等于0表示作为从服务器，采用异步方式写入，不设置权重表示0，全部不设置权重表示1；
-            3，对于读服务器，默认根据权重进行随机分配，不设置表示1；
-            4，对于读服务器，可优先考虑最近使用的数据库
-            </remarks>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.Type">
-            <summary>返回数据库类型。</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.Factory">
-            <summary>工厂</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Distributed.OnCreateSession">
-            <summary>创建数据库会话</summary>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Distributed.OnCreateMetaData">
-            <summary>创建元数据对象</summary>
-            <returns></returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.WriteServers">
-            <summary>写入服务器集合</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.ReadServers">
-            <summary>读取服务器集合</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.Server.ConnName">
-            <summary>连接名</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.Server.Weight">
-            <summary>权重</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Distributed.Server.Db">
-            <summary>数据库对象</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Distributed.Init">
-            <summary>初始化</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Distributed.GetReadDb">
-            <summary>获取一个用于读取的数据库对象</summary>
-            <returns></returns>
-        </member>
         <member name="P:XCode.DataAccessLayer.Firebird.Type">
             <summary>返回数据库类型。</summary>
         </member>
@@ -1146,9 +1060,6 @@
             <param name="startRowIndex">开始行，0表示第一行</param>
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Firebird.DateTimeNow">
-            <summary>当前时间函数</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.Firebird.FormatKeyWord(System.String)">
             <summary>格式化关键字</summary>
@@ -1187,59 +1098,6 @@
             <summary>取得所有表构架</summary>
             <returns></returns>
         </member>
-        <member name="T:XCode.DataAccessLayer.Network">
-            <summary>网络数据库</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Network.Type">
-            <summary>返回数据库类型。</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Network.Factory">
-            <summary>工厂</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Network.OnCreateSession">
-            <summary>创建数据库会话</summary>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Network.OnCreateMetaData">
-            <summary>创建元数据对象</summary>
-            <returns></returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Network.Server">
-            <summary>服务端数据库对象，该对象不可以使用与会话相关的功能</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.Network.UpdateInfo">
-            <summary>请求服务器，更新基本信息到本地</summary>
-        </member>
-        <member name="T:XCode.DataAccessLayer.NetworkSession">
-            <summary>网络数据库会话</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.NetworkSession.Query(System.Data.Common.DbCommand)">
-            <summary>不支持</summary>
-            <param name="cmd"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.NetworkSession.QueryCountFast(System.String)">
-            <summary>快速查询单表记录数，稍有偏差</summary>
-            <param name="tableName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.NetworkSession.Execute(System.Data.Common.DbCommand)">
-            <summary>执行DbCommand，返回受影响的行数</summary>
-            <param name="cmd">DbCommand</param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.NetworkSession.GetSchema(System.String,System.String[])">
-            <summary>返回数据源的架构信息</summary>
-            <param name="collectionName">指定要返回的架构的名称。</param>
-            <param name="restrictionValues">为请求的架构指定一组限制值。</param>
-            <returns></returns>
-        </member>
-        <member name="T:XCode.DataAccessLayer.NetworkMetaData">
-            <summary>网络数据库元数据</summary>
-        </member>
-        <member name="T:XCode.DataAccessLayer.NetworkDbServer">
-            <summary>网络数据库服务器，处理客户端发来的数据库请求</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.PostgreSQL.Type">
             <summary>返回数据库类型。</summary>
         </member>
@@ -1276,9 +1134,6 @@
             <param name="startRowIndex">开始行，0表示第一行</param>
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.PostgreSQL.DateTimeNow">
-            <summary>当前时间函数</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.PostgreSQL.FormatKeyWord(System.String)">
             <summary>格式化关键字</summary>
@@ -1341,12 +1196,6 @@
         <member name="M:XCode.DataAccessLayer.SqlCe.OnCreateMetaData">
             <summary>创建元数据对象</summary>
             <returns></returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SqlCe.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SqlCe.DateTimeMin">
-            <summary>最小时间</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.SqlCe.FormatKeyWord(System.String)">
             <summary>格式化关键字</summary>
@@ -1521,17 +1370,8 @@
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.DbBase.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.DbBase.DateTimeMin">
-            <summary>最小时间</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.DbBase.LongTextLength">
             <summary>长文本长度</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.DbBase.NewGuid">
-            <summary>获取Guid的函数</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.DbBase.ReservedWordsStr">
             <summary>
@@ -1707,17 +1547,8 @@
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.IDatabase.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDatabase.DateTimeMin">
-            <summary>最小时间</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.IDatabase.LongTextLength">
             <summary>长文本长度</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDatabase.NewGuid">
-            <summary>获取Guid的函数</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.IDatabase.FormatDateTime(System.DateTime)">
             <summary>格式化时间为SQL字符串</summary>
@@ -1793,21 +1624,6 @@
             <param name="entityDb"></param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.DbMetaData.IsColumnDefaultChanged(XCode.DataAccessLayer.IDataColumn,XCode.DataAccessLayer.IDataColumn,XCode.DataAccessLayer.IDatabase)">
-            <summary>检查字段默认值是否有改变</summary>
-            <param name="entityColumn"></param>
-            <param name="dbColumn"></param>
-            <param name="entityDb"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.DbMetaData.ChangeColmnDefault(System.Text.StringBuilder,System.Boolean,XCode.DataAccessLayer.IDataColumn,XCode.DataAccessLayer.IDataColumn,XCode.DataAccessLayer.IDatabase)">
-            <summary>改变字段默认值。这里仅仅默认处理了时间日期，如果需要兼容多数据库，子类需要重载</summary>
-            <param name="sb"></param>
-            <param name="onlySql"></param>
-            <param name="entityColumn"></param>
-            <param name="dbColumn"></param>
-            <param name="entityDb"></param>
-        </member>
         <member name="M:XCode.DataAccessLayer.DbMetaData.PerformSchema(System.Text.StringBuilder,System.Boolean,XCode.DataAccessLayer.DDLSchema,System.Object[])">
             <summary>
             获取架构语句，该执行的已经执行。
@@ -1839,12 +1655,6 @@
         </member>
         <member name="M:XCode.DataAccessLayer.DbMetaData.GetFieldConstraints(XCode.DataAccessLayer.IDataColumn,System.Boolean)">
             <summary>取得字段约束</summary>
-            <param name="field">字段</param>
-            <param name="onlyDefine">仅仅定义</param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.DbMetaData.GetFieldDefault(XCode.DataAccessLayer.IDataColumn,System.Boolean)">
-            <summary>取得字段默认值</summary>
             <param name="field">字段</param>
             <param name="onlyDefine">仅仅定义</param>
             <returns></returns>
@@ -1965,12 +1775,6 @@
             <param name="name">名称</param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.DbMetaData.CheckAndGetDefault(XCode.DataAccessLayer.IDataColumn,System.String@)">
-            <summary>检查并获取当前数据库的默认值。如果数据库类型一致，则直接返回false，因为没有修改</summary>
-            <param name="dc"></param>
-            <param name="oriDefault"></param>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.DbMetaData.WriteLog(System.String)">
             <summary>输出日志</summary>
             <param name="msg"></param>
@@ -2038,26 +1842,6 @@
             <param name="columnNames"></param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.GetRelation(XCode.DataAccessLayer.IDataTable,System.String)">
-            <summary>根据字段从指定表中查找关系</summary>
-            <param name="table"></param>
-            <param name="columnName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.GetRelation(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataRelation)">
-            <summary>根据字段、关联表、关联字段从指定表中查找关系</summary>
-            <param name="table"></param>
-            <param name="dr"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.GetRelation(XCode.DataAccessLayer.IDataTable,System.String,System.String,System.String)">
-            <summary>根据字段、关联表、关联字段从指定表中查找关系</summary>
-            <param name="table"></param>
-            <param name="columnName"></param>
-            <param name="rtableName"></param>
-            <param name="rcolumnName"></param>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.ModelHelper.ToXml(System.Collections.Generic.IEnumerable{XCode.DataAccessLayer.IDataTable},System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>导出模型</summary>
             <param name="tables"></param>
@@ -2093,34 +1877,14 @@
             <param name="value">数值</param>
             <param name="writeDefaultValueMember">是否写数值为默认值的成员。为了节省空间，默认不写。</param>
         </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.CopyFrom``1(``0,``0)">
-            <summary>复制数据表到另一个数据表，不复制数据列、索引和关系</summary>
-            <param name="src"></param>
-            <param name="des"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.CopyAllFrom(XCode.DataAccessLayer.IDataTable,XCode.DataAccessLayer.IDataTable,System.Boolean)">
-            <summary>复制数据表到另一个数据表，复制所有数据列、索引和关系</summary>
-            <param name="src"></param>
-            <param name="des"></param>
-            <param name="resetColumnID">是否重置列ID</param>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.ModelHelper.Fix(XCode.DataAccessLayer.IDataColumn,XCode.DataAccessLayer.IDataColumn)">
             <summary>根据类型修正字段的一些默认值。仅考虑MSSQL</summary>
             <param name="dc"></param>
             <param name="oridc"></param>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.ModelHelper.Connect(System.Collections.Generic.IEnumerable{XCode.DataAccessLayer.IDataTable})">
-            <summary>表间连接，猜测关系</summary>
-            <param name="tables"></param>
-        </member>
         <member name="T:XCode.DataAccessLayer.IDataColumn">
             <summary>数据列</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataColumn.ID">
-            <summary>顺序编号</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.IDataColumn.Name">
             <summary>名称</summary>
@@ -2149,9 +1913,6 @@
         <member name="P:XCode.DataAccessLayer.IDataColumn.Length">
             <summary>长度</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.IDataColumn.NumOfByte">
-            <summary>字节数</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.IDataColumn.Precision">
             <summary>精度</summary>
         </member>
@@ -2160,12 +1921,6 @@
         </member>
         <member name="P:XCode.DataAccessLayer.IDataColumn.Nullable">
             <summary>允许空</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataColumn.IsUnicode">
-            <summary>是否Unicode</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataColumn.Default">
-            <summary>默认值</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.IDataColumn.DisplayName">
             <summary>显示名。如果有Description则使用Description，否则使用Name</summary>
@@ -2184,36 +1939,6 @@
             <returns></returns>
         </member>
         <member name="M:XCode.DataAccessLayer.IDataColumn.Clone(XCode.DataAccessLayer.IDataTable)">
-            <summary>克隆到指定的数据表</summary>
-            <param name="table"></param>
-        </member>
-        <member name="T:XCode.DataAccessLayer.IDataRelation">
-            <summary>
-            数据关系。
-            一个表如果有多个数据关系，表明是多对多的关系表；如果只有一个关系，需要看是否唯一，它决定是一对一还是一对多。并可根据关系，生成对应的数据索引。
-            可根据数据关系生成扩展属性。
-            正向工程将会为所有数据关系建立相对应的索引。
-            </summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.Column">
-            <summary>数据列</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.RelationTable">
-            <summary>引用表</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.RelationColumn">
-            <summary>引用列</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.Unique">
-            <summary>是否唯一</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.Computed">
-            <summary>是否计算出来的，而不是数据库内置的</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.IDataRelation.Table">
-            <summary>说明数据表</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.IDataRelation.Clone(XCode.DataAccessLayer.IDataTable)">
             <summary>克隆到指定的数据表</summary>
             <param name="table"></param>
         </member>
@@ -2253,9 +1978,6 @@
         <member name="T:XCode.DataAccessLayer.IDataTable">
             <summary>数据表</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.IDataTable.ID">
-            <summary>编号</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.IDataTable.Name">
             <summary>名称</summary>
         </member>
@@ -2292,9 +2014,6 @@
         <member name="P:XCode.DataAccessLayer.IDataTable.Columns">
             <summary>数据列集合。可以是空集合，但不能为null。</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.IDataTable.Relations">
-            <summary>数据关系集合。可以是空集合，但不能为null。</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.IDataTable.Indexes">
             <summary>数据索引集合。可以是空集合，但不能为null。</summary>
         </member>
@@ -2311,10 +2030,6 @@
             <summary>创建数据列</summary>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.IDataTable.CreateRelation">
-            <summary>创建数据关系</summary>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.IDataTable.CreateIndex">
             <summary>创建数据索引</summary>
             <returns></returns>
@@ -2328,10 +2043,6 @@
             <summary>根据字段名数组获取字段数组</summary>
             <param name="names"></param>
             <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.IDataTable.Connect(XCode.DataAccessLayer.IDataTable)">
-            <summary>连接另一个表，处理两表间关系</summary>
-            <param name="table"></param>
         </member>
         <member name="M:XCode.DataAccessLayer.IDataTable.Fix">
             <summary>修正数据</summary>
@@ -2486,40 +2197,6 @@
             <summary>已重载。</summary>
             <returns></returns>
         </member>
-        <member name="T:XCode.DataAccessLayer.XRelation">
-            <summary>数据关系</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.Column">
-            <summary>数据列</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.RelationTable">
-            <summary>引用表</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.RelationColumn">
-            <summary>引用列</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.Unique">
-            <summary>是否唯一</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.Computed">
-            <summary>是否计算出来的，而不是数据库内置的</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XRelation.Table">
-            <summary>表</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.XRelation.System#ICloneable#Clone">
-            <summary>克隆</summary>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.XRelation.Clone(XCode.DataAccessLayer.IDataTable)">
-            <summary>克隆</summary>
-            <param name="table"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.XRelation.ToString">
-            <summary>已重载。</summary>
-            <returns></returns>
-        </member>
         <member name="P:XCode.DataAccessLayer.Access.Type">
             <summary>返回数据库类型。外部DAL数据库类请使用Other</summary>
         </member>
@@ -2533,12 +2210,6 @@
         <member name="M:XCode.DataAccessLayer.Access.OnCreateMetaData">
             <summary>创建元数据对象</summary>
             <returns></returns>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Access.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Access.DateTimeMin">
-            <summary>最小时间</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.Access.LongTextLength">
             <summary>长文本长度</summary>
@@ -2577,12 +2248,6 @@
         </member>
         <member name="T:XCode.DataAccessLayer.AccessMetaData">
             <summary>Access元数据</summary>
-        </member>
-        <member name="M:XCode.DataAccessLayer.AccessMetaData.GetFieldDefault(XCode.DataAccessLayer.IDataColumn,System.Boolean)">
-            <summary>取得字段默认值</summary>
-            <param name="field">字段</param>
-            <param name="onlyDefine">仅仅定义</param>
-            <returns></returns>
         </member>
         <member name="T:XCode.DataAccessLayer.DbSession">
             <summary>数据库会话基类</summary>
@@ -2949,12 +2614,6 @@
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.MySql.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.MySql.NewGuid">
-            <summary>获取Guid的函数</summary>
-        </member>
         <member name="M:XCode.DataAccessLayer.MySql.FormatKeyWord(System.String)">
             <summary>格式化关键字</summary>
             <param name="keyWord">关键字</param>
@@ -3046,12 +2705,6 @@
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.Oracle.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.Oracle.NewGuid">
-            <summary>获取Guid的函数</summary>
-        </member>
         <member name="M:XCode.DataAccessLayer.Oracle.FormatDateTime(System.DateTime)">
             <summary>已重载。格式化时间</summary>
             <param name="dateTime"></param>
@@ -3105,8 +2758,8 @@
         <member name="P:XCode.DataAccessLayer.OracleMeta.Owner">
             <summary>拥有者</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.OracleMeta.IsUseOwner">
-            <summary>是否限制只能访问拥有者的信息</summary>
+        <member name="P:XCode.DataAccessLayer.OracleMeta.UserID">
+            <summary>用户名</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.OracleMeta.OnGetTables(System.Collections.Generic.ICollection{System.String})">
             <summary>取得所有表构架</summary>
@@ -3123,12 +2776,6 @@
         <member name="M:XCode.DataAccessLayer.OracleMeta.GetFields(XCode.DataAccessLayer.IDataTable)">
             <summary>取得指定表的所有列构架</summary>
             <param name="table"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.OracleMeta.GetColumnDefault(System.String,System.String)">
-            <summary>获取默认值信息</summary>
-            <param name="tableName"></param>
-            <param name="columnName"></param>
             <returns></returns>
         </member>
         <member name="T:XCode.DataAccessLayer.SelectBuilder">
@@ -3303,15 +2950,6 @@
             <param name="maximumRows">最大返回行数，0表示所有行</param>
             <returns>分页SQL</returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.SQLite.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SQLite.DateTimeMin">
-            <summary>最小时间</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SQLite.NewGuid">
-            <summary>获取Guid的函数，@老树 说SQLite没有这个函数</summary>
-        </member>
         <member name="M:XCode.DataAccessLayer.SQLite.FormatKeyWord(System.String)">
             <summary>格式化关键字</summary>
             <param name="keyWord">关键字</param>
@@ -3397,17 +3035,8 @@
             <param name="sql"></param>
             <returns></returns>
         </member>
-        <member name="P:XCode.DataAccessLayer.SqlServer.DateTimeNow">
-            <summary>当前时间函数</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SqlServer.DateTimeMin">
-            <summary>最小时间</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.SqlServer.LongTextLength">
             <summary>长文本长度</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.SqlServer.NewGuid">
-            <summary>获取Guid的函数</summary>
         </member>
         <member name="M:XCode.DataAccessLayer.SqlServer.FormatDateTime(System.DateTime)">
             <summary>格式化时间为SQL字符串</summary>
@@ -3520,12 +3149,6 @@
         <member name="F:XCode.DataAccessLayer.DDLSchema.DropColumnDescription">
             <summary>删除字段说明</summary>
         </member>
-        <member name="F:XCode.DataAccessLayer.DDLSchema.AddDefault">
-            <summary>添加默认值</summary>
-        </member>
-        <member name="F:XCode.DataAccessLayer.DDLSchema.DropDefault">
-            <summary>删除默认值</summary>
-        </member>
         <member name="F:XCode.DataAccessLayer.DDLSchema.CreateIndex">
             <summary>建立索引</summary>
         </member>
@@ -3543,9 +3166,6 @@
         </member>
         <member name="T:XCode.DataAccessLayer.XField">
             <summary>字段构架</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XField.ID">
-            <summary>顺序编号</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.XField.Name">
             <summary>名称</summary>
@@ -3574,9 +3194,6 @@
         <member name="P:XCode.DataAccessLayer.XField.Length">
             <summary>长度</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.XField.NumOfByte">
-            <summary>字节数</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.XField.Precision">
             <summary>精度</summary>
         </member>
@@ -3585,12 +3202,6 @@
         </member>
         <member name="P:XCode.DataAccessLayer.XField.Nullable">
             <summary>允许空</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XField.IsUnicode">
-            <summary>是否Unicode</summary>
-        </member>
-        <member name="P:XCode.DataAccessLayer.XField.Default">
-            <summary>默认值</summary>
         </member>
         <member name="P:XCode.DataAccessLayer.XField.DisplayName">
             <summary>显示名</summary>
@@ -3663,9 +3274,6 @@
         <member name="P:XCode.DataAccessLayer.XTable.Columns">
             <summary>字段集合。可以是空集合，但不能为null。</summary>
         </member>
-        <member name="P:XCode.DataAccessLayer.XTable.Relations">
-            <summary>关系集合。可以是空集合，但不能为null。</summary>
-        </member>
         <member name="P:XCode.DataAccessLayer.XTable.Indexes">
             <summary>索引集合。可以是空集合，但不能为null。</summary>
         </member>
@@ -3689,10 +3297,6 @@
             <summary>创建字段</summary>
             <returns></returns>
         </member>
-        <member name="M:XCode.DataAccessLayer.XTable.CreateRelation">
-            <summary>创建外键</summary>
-            <returns></returns>
-        </member>
         <member name="M:XCode.DataAccessLayer.XTable.CreateIndex">
             <summary>创建索引</summary>
             <returns></returns>
@@ -3706,10 +3310,6 @@
             <summary>根据字段名数组获取字段数组</summary>
             <param name="names"></param>
             <returns></returns>
-        </member>
-        <member name="M:XCode.DataAccessLayer.XTable.Connect(XCode.DataAccessLayer.IDataTable)">
-            <summary>连接另一个表，处理两表间关系</summary>
-            <param name="table"></param>
         </member>
         <member name="M:XCode.DataAccessLayer.XTable.Fix">
             <summary>修正数据</summary>
@@ -5828,12 +5428,13 @@
             <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
             <returns>实体集</returns>
         </member>
-        <member name="M:XCode.Membership.UserOnline`1.SetStatus(System.String,System.String,System.Int32,System.String)">
+        <member name="M:XCode.Membership.UserOnline`1.SetStatus(System.String,System.String,System.Int32,System.String,System.String)">
             <summary>设置会话状态</summary>
             <param name="sessionid"></param>
             <param name="status"></param>
             <param name="userid"></param>
             <param name="name"></param>
+            <param name="ip"></param>
             <returns></returns>
         </member>
         <member name="M:XCode.Membership.UserOnline`1.SetWebStatus(System.String)">
@@ -6768,6 +6369,12 @@
             <param name="ps">参数字典</param>
             <returns></returns>
         </member>
+        <member name="T:XCode.PreApplicationStartCode">
+            <summary>应用启动代码</summary>
+        </member>
+        <member name="M:XCode.PreApplicationStartCode.Start">
+            <summary>Registers pre-application start code for web pages.</summary>
+        </member>
         <member name="T:XCode.Remoting.ApiUserSession">
             <summary>带有用户信息的Api会话</summary>
         </member>
@@ -6883,6 +6490,12 @@
         </member>
         <member name="P:XCode.Setting.ExtendExpire">
             <summary>扩展属性过期。默认10秒</summary>
+        </member>
+        <member name="P:XCode.Setting.WebOnline">
+            <summary>用户在线。记录用户在线状态</summary>
+        </member>
+        <member name="P:XCode.Setting.WebBehavior">
+            <summary>用户行为。记录用户所有操作</summary>
         </member>
         <member name="P:XCode.Setting.Negative">
             <summary>反向工程</summary>
@@ -7440,9 +7053,6 @@
         <member name="F:XCode.Configuration.TableItem._Indexes">
             <summary>绑定索引特性</summary>
         </member>
-        <member name="F:XCode.Configuration.TableItem._Relations">
-            <summary>绑定关系特性</summary>
-        </member>
         <member name="P:XCode.Configuration.TableItem.Description">
             <summary>说明</summary>
         </member>
@@ -7533,9 +7143,6 @@
         <member name="P:XCode.Configuration.FieldItem.DisplayName">
             <summary>说明</summary>
         </member>
-        <member name="F:XCode.Configuration.FieldItem._ID">
-            <summary>顺序标识</summary>
-        </member>
         <member name="P:XCode.Configuration.FieldItem.Name">
             <summary>属性名</summary>
         </member>
@@ -7575,9 +7182,6 @@
             默认使用BindColumn特性中指定的字段名，如果没有指定，则使用属性名。
             字段名可能两边带有方括号等标识符
             </remarks>
-        </member>
-        <member name="P:XCode.Configuration.FieldItem.DefaultValue">
-            <summary>默认值</summary>
         </member>
         <member name="P:XCode.Configuration.FieldItem.ReadOnly">
             <summary>是否只读</summary>
@@ -8750,12 +8354,6 @@
         </member>
         <member name="P:XCode.Entity`1.HasDirty">
             <summary>是否有脏数据。决定是否可以Update</summary>
-        </member>
-        <member name="M:XCode.Entity`1.OnPropertyChanging(System.String,System.Object)">
-            <summary>如果字段带有默认值，则需要设置脏数据，因为显然用户想设置该字段，而不是采用数据库的默认值</summary>
-            <param name="fieldName"></param>
-            <param name="newValue"></param>
-            <returns></returns>
         </member>
         <member name="T:XCode.Entity`1.Meta">
             <summary>实体元数据</summary>
@@ -10157,6 +9755,19 @@
         </member>
         <member name="E:XCode.Transform.EntityTransform.OnTransformEntity">
             <summary>转换实体时触发</summary>
+        </member>
+        <member name="T:XCode.Web.UserBehaviorModule">
+            <summary>用户行为模块，在线和操作记录</summary>
+        </member>
+        <member name="M:XCode.Web.UserBehaviorModule.System#Web#IHttpModule#Init(System.Web.HttpApplication)">
+            <summary>初始化模块，准备拦截请求。</summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XCode.Web.UserBehaviorModule.OnPost(System.Object,System.EventArgs)">
+            <summary>输出运行时间</summary>
+        </member>
+        <member name="P:XCode.Web.UserBehaviorModule.ExcludeSuffixes">
+            <summary>忽略的后缀</summary>
         </member>
         <member name="T:XCode.Web.EntityGrid">
             <summary>用于显示数据的网格</summary>
