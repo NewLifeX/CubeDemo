@@ -4,17 +4,12 @@
  * 时间：2017-01-23 16:02:44
  * 版权：版权所有 (C) 新生命开发团队 2002~2017
 */
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Xml.Serialization;
-using NewLife.Log;
+using System.Linq;
+using NewLife.Data;
 using NewLife.Web;
-﻿using NewLife.Data;
 using XCode;
-using XCode.Configuration;
-using XCode.Membership;
 
 namespace NewLife.School.Entity
 {
@@ -101,11 +96,11 @@ namespace NewLife.School.Entity
         {
             if (id <= 0) return null;
 
-            if (Meta.Count >= 1000)
-                return Find(__.ID, id);
-            //return Meta.SingleCache[id];
-            else // 实体缓存
-                return Meta.Cache.Entities.Find(__.ID, id);
+            // 实体缓存
+            if (Meta.Count < 1000) return Meta.Cache.Entities.FirstOrDefault(e => e.ID == id);
+
+            // 单对象缓存
+            return Meta.SingleCache[id];
         }
         #endregion
 
@@ -119,7 +114,7 @@ namespace NewLife.School.Entity
         /// <param name="key">关键字</param>
         /// <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
         /// <returns>实体集</returns>
-        public static EntityList<Class> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
+        public static IList<Class> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
         {
             // WhereExpression重载&和|运算符，作为And和Or的替代
             // SearchWhereByKeys系列方法用于构建针对字符串字段的模糊搜索，第二个参数可指定要搜索的字段

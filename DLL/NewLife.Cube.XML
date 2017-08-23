@@ -107,7 +107,7 @@
         <member name="T:NewLife.Cube.Admin.Controllers.LogController">
             <summary>日志控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.LogController.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.Admin.Controllers.LogController.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -162,7 +162,7 @@
         <member name="T:NewLife.Cube.Admin.Controllers.UserController">
             <summary>用户控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -316,6 +316,10 @@
         </member>
         <member name="M:NewLife.Cube.ObjectController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
             <summary>动作执行前</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.ObjectController`1.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>执行后</summary>
             <param name="filterContext"></param>
         </member>
         <member name="M:NewLife.Cube.ObjectController`1.Index">
@@ -559,7 +563,7 @@
             <param name="autoPostback">自动回发</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.HtmlExtensions.ForDropDownList(System.Web.Mvc.HtmlHelper,System.String,XCode.IEntityList,System.String,System.Boolean)">
+        <member name="M:NewLife.Cube.HtmlExtensions.ForDropDownList(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IList{XCode.IEntity},System.String,System.Boolean)">
             <summary>实体列表的下拉列表。单选，自动匹配当前模型的选中项</summary>
             <param name="Html"></param>
             <param name="name"></param>
@@ -577,7 +581,7 @@
             <param name="autoPostback">自动回发</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.HtmlExtensions.ForListBox(System.Web.Mvc.HtmlHelper,System.String,XCode.IEntityList,System.Boolean)">
+        <member name="M:NewLife.Cube.HtmlExtensions.ForListBox(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IList{XCode.IEntity},System.Boolean)">
             <summary>实体列表的下拉列表。多选，自动匹配当前模型的选中项，支持数组类型或字符串类型（自动分割）的选中项</summary>
             <param name="Html"></param>
             <param name="name"></param>
@@ -691,7 +695,15 @@
         <member name="M:NewLife.Cube.EntityController`1.#ctor">
             <summary>构造函数</summary>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.FindAll(NewLife.Web.Pager)">
+        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>动作执行前</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>执行后</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.Search(NewLife.Web.Pager)">
             <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
@@ -792,7 +804,7 @@
             <summary>导出Excel，可重载修改要输出的结果集</summary>
             <param name="fs"></param>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.Collections.Generic.List{XCode.Configuration.FieldItem},System.Collections.Generic.List{`0})">
+        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.Collections.Generic.List{XCode.Configuration.FieldItem},System.Collections.Generic.IEnumerable{`0})">
             <summary>导出Excel，可重载修改要输出的列</summary>
             <param name="fs"></param>
             <param name="list"></param>
@@ -844,10 +856,6 @@
             <summary>自动从实体类拿到显示名</summary>
             <param name="menu"></param>
             <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
-            <summary>动作执行前</summary>
-            <param name="filterContext"></param>
         </member>
         <member name="T:NewLife.Cube.ConfigController`1">
             <summary>设置控制器</summary>
@@ -958,6 +966,12 @@
         </member>
         <member name="M:NewLife.Cube.MvcApplication.Application_Start">
             <summary>应用程序启动</summary>
+        </member>
+        <member name="T:NewLife.Cube.PreApplicationStartCode">
+            <summary>应用启动代码</summary>
+        </member>
+        <member name="M:NewLife.Cube.PreApplicationStartCode.Start">
+            <summary>Registers pre-application start code for web pages.</summary>
         </member>
         <member name="T:NewLife.Cube.Precompiled.AssemblyExtensions">
             <summary>程序集的扩展方法</summary>
@@ -1250,6 +1264,30 @@
         </member>
         <member name="P:NewLife.Cube.Setting.Layout">
             <summary>布局页。</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.DefaultRole">
+            <summary>默认角色。注册用户得到的角色</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AllowRegister">
+            <summary>启用注册</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AllowForgot">
+            <summary>启用取回密码</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.LoginTip">
+            <summary>登录提示。留空表示不显示登录提示信息</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.WebOnline">
+            <summary>用户在线。记录用户在线状态</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.WebBehavior">
+            <summary>用户行为。记录用户所有操作</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.FormGroupClass">
+            <summary>表单组样式。大中小屏幕分别3/2/1列</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.BootstrapSelect">
+            <summary>下拉选择框。使用Bootstrap，美观，但有呈现方面的性能损耗</summary>
         </member>
         <member name="M:NewLife.Cube.Setting.#ctor">
             <summary>实例化</summary>

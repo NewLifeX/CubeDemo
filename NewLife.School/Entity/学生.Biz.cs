@@ -7,13 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using System.Linq;
 using System.Xml.Serialization;
-using NewLife.Log;
-using NewLife.Web;
 using NewLife.Data;
+using NewLife.Web;
 using XCode;
-using XCode.Configuration;
 using XCode.Membership;
 
 namespace NewLife.School.Entity
@@ -22,8 +20,6 @@ namespace NewLife.School.Entity
     public partial class Student : Entity<Student>
     {
         #region 对象操作
-
-
         /// <summary>验证数据，通过抛出异常的方式提示验证失败。</summary>
         /// <param name="isNew"></param>
         public override void Valid(Boolean isNew)
@@ -46,13 +42,6 @@ namespace NewLife.School.Entity
             if (!Dirtys[__.UpdateTime]) UpdateTime = DateTime.Now;
             if (!Dirtys[__.UpdateIP]) UpdateIP = WebHelper.UserHost;
         }
-
-        //protected override Int32 OnDelete()
-        //{
-        //    //return base.OnDelete();
-        //    // Deleted = true;
-        //    // return Update();
-        //}
         #endregion
 
         #region 扩展属性
@@ -73,6 +62,17 @@ namespace NewLife.School.Entity
         #endregion
 
         #region 扩展查询
+        public static Student FindByID(Int32 id)
+        {
+            if (id <= 0) return null;
+
+            // 实体缓存
+            if (Meta.Count < 1000) return Meta.Cache.Entities.FirstOrDefault(e => e.ID == id);
+
+            // 单对象缓存
+            return Meta.SingleCache[id];
+        }
+
         public static Student FindByName(String name)
         {
             return Find(__.Name, name);
@@ -82,12 +82,12 @@ namespace NewLife.School.Entity
         /// <param name="classid">班级</param>
         /// <returns></returns>
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public static EntityList<Student> FindAllByClassID(Int32 classid)
+        public static IList<Student> FindAllByClassID(Int32 classid)
         {
             if (Meta.Count >= 1000)
                 return FindAll(__.ClassID, classid);
             else // 实体缓存
-                return Meta.Cache.Entities.FindAll(__.ClassID, classid);
+                return Meta.Cache.Entities.Where(e => e.ClassID == classid).ToList();
         }
 
         #endregion
@@ -100,7 +100,7 @@ namespace NewLife.School.Entity
         /// <param name="key">关键字</param>
         /// <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
         /// <returns>实体集</returns>
-        public static EntityList<Student> Search(Int32 classid, DateTime start, DateTime end, String key, PageParameter param)
+        public static IList<Student> Search(Int32 classid, DateTime start, DateTime end, String key, PageParameter param)
         {
             var exp = new WhereExpression();
             if (classid > 0) exp &= _.ClassID == classid;
