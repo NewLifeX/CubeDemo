@@ -95,13 +95,13 @@ namespace NewLife.School.Entity
         [BindColumn("ReceiverCity", "收货人区", "nvarchar(50)")]
         public String ReceiverCity { get { return _ReceiverCity; } set { if (OnPropertyChanging(__.ReceiverCity, value)) { _ReceiverCity = value; OnPropertyChanged(__.ReceiverCity); } } }
 
-        private String _Receiver_District;
+        private String _ReceiverDistrict;
         /// <summary>收货区</summary>
         [DisplayName("收货区")]
         [Description("收货区")]
         [DataObjectField(false, false, true, 50)]
         [BindColumn("Receiver_District", "收货区", "nvarchar(50)")]
-        public String Receiver_District { get { return _Receiver_District; } set { if (OnPropertyChanging(__.Receiver_District, value)) { _Receiver_District = value; OnPropertyChanged(__.Receiver_District); } } }
+        public String ReceiverDistrict { get { return _ReceiverDistrict; } set { if (OnPropertyChanging(__.ReceiverDistrict, value)) { _ReceiverDistrict = value; OnPropertyChanged(__.ReceiverDistrict); } } }
 
         private String _ReceiverAddress;
         /// <summary>收货地址</summary>
@@ -172,7 +172,7 @@ namespace NewLife.School.Entity
                     case __.ReceiverMobile : return _ReceiverMobile;
                     case __.ReceiverState : return _ReceiverState;
                     case __.ReceiverCity : return _ReceiverCity;
-                    case __.Receiver_District : return _Receiver_District;
+                    case __.ReceiverDistrict : return _ReceiverDistrict;
                     case __.ReceiverAddress : return _ReceiverAddress;
                     case __.BuyerName : return _BuyerName;
                     case __.Created : return _Created;
@@ -196,7 +196,7 @@ namespace NewLife.School.Entity
                     case __.ReceiverMobile : _ReceiverMobile = Convert.ToString(value); break;
                     case __.ReceiverState : _ReceiverState = Convert.ToString(value); break;
                     case __.ReceiverCity : _ReceiverCity = Convert.ToString(value); break;
-                    case __.Receiver_District : _Receiver_District = Convert.ToString(value); break;
+                    case __.ReceiverDistrict : _ReceiverDistrict = Convert.ToString(value); break;
                     case __.ReceiverAddress : _ReceiverAddress = Convert.ToString(value); break;
                     case __.BuyerName : _BuyerName = Convert.ToString(value); break;
                     case __.Created : _Created = Convert.ToInt32(value); break;
@@ -244,7 +244,7 @@ namespace NewLife.School.Entity
             public static readonly Field ReceiverCity = FindByName(__.ReceiverCity);
 
             /// <summary>收货区</summary>
-            public static readonly Field Receiver_District = FindByName(__.Receiver_District);
+            public static readonly Field ReceiverDistrict = FindByName(__.ReceiverDistrict);
 
             /// <summary>收货地址</summary>
             public static readonly Field ReceiverAddress = FindByName(__.ReceiverAddress);
@@ -301,7 +301,7 @@ namespace NewLife.School.Entity
             public const String ReceiverCity = "ReceiverCity";
 
             /// <summary>收货区</summary>
-            public const String Receiver_District = "Receiver_District";
+            public const String ReceiverDistrict = "ReceiverDistrict";
 
             /// <summary>收货地址</summary>
             public const String ReceiverAddress = "ReceiverAddress";
@@ -359,7 +359,7 @@ namespace NewLife.School.Entity
         String ReceiverCity { get; set; }
 
         /// <summary>收货区</summary>
-        String Receiver_District { get; set; }
+        String ReceiverDistrict { get; set; }
 
         /// <summary>收货地址</summary>
         String ReceiverAddress { get; set; }

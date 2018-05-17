@@ -33,8 +33,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NewLife.Core, Version=6.6.6644.19801, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.Core.6.6.6644.19801\lib\net45\NewLife.Core.dll</HintPath>
+    <Reference Include="NewLife.Core, Version=7.0.6712.2419, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.Core.7.0.6712.2419\lib\net45\NewLife.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,8 +43,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="XCode, Version=9.6.6644.19804, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.XCode.9.6.6644.19804\lib\net45\XCode.dll</HintPath>
+    <Reference Include="XCode, Version=9.7.6712.2420, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.XCode.9.7.6712.2420\lib\net45\XCode.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -57,22 +57,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NewLife.School.xml" />
-    <Content Include="XCoder.tt">
+    <Content Include="Build.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>XCoder.log</LastGenOutput>
+      <LastGenOutput>Build.log</LastGenOutput>
     </Content>
+    <Content Include="NewLife.School.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="XCoder.log">
+    <None Include="Build.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>XCoder.tt</DependentUpon>
+      <DependentUpon>Build.tt</DependentUpon>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
