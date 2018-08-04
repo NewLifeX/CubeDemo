@@ -48,8 +48,8 @@
     <Reference Include="NewLife.Core, Version=7.3.6790.27910, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NewLife.Core.7.3.6790.27910\lib\net45\NewLife.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NewLife.Cube, Version=2.4.6764.20057, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.Cube.2.4.6764.20057\lib\net45\NewLife.Cube.dll</HintPath>
+    <Reference Include="NewLife.Cube, Version=2.4.6790.30464, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.Cube.2.4.6790.30464\lib\net45\NewLife.Cube.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -130,9 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\School\Views\Student\_List_Toolbar.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Entity\XCoder.log" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
