@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NewLife.Core, Version=7.3.6790.27910, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.Core.7.3.6790.27910\lib\net45\NewLife.Core.dll</HintPath>
+    <Reference Include="NewLife.Core, Version=7.3.6804.36941, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.Core.7.3.6804.36941\lib\net45\NewLife.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NewLife.Cube, Version=2.4.6790.30464, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.Cube.2.4.6790.30464\lib\net45\NewLife.Cube.dll</HintPath>
+    <Reference Include="NewLife.Cube, Version=2.4.6805.436, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.Cube.2.4.6805.436\lib\net45\NewLife.Cube.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -90,8 +90,8 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="XCode, Version=9.8.6790.27913, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.XCode.9.8.6790.27913\lib\net45\XCode.dll</HintPath>
+    <Reference Include="XCode, Version=9.9.6804.36942, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewLife.XCode.9.9.6804.36942\lib\net45\XCode.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
